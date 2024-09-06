@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ALL USERS </title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	 
+     <table>
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			 <th>Email</th>
+			 <th></th>
+             <th></th>
+		</tr>
+		<div style="display: flex; justify-content: space-around; width: 95%;;
+		"><h2>Total number of Connected users are : <%= userCount %></h2>  <form method="POST" action="/signup?_method=POST"><button class="button">JOIN US!</button></form></div>
+		 <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Here is the list of all users registerd in delta Databse! </p>
+
+			<%  for(user of users ){ %>
+				<tr>
+					<td><%= user.id %> </td>
+					<td><%= user.name %> </td>
+					<td><%= user.email %> </td>
+
+					<td>
+						 <form action="user/<%= user.id %>/edit">
+							<button class="button">Edit</button>
+						</form>
+					</td>
+                    <td>
+                        <form action="user/<%= user.id %>/delete">
+                           <button class="button">Delete</button>
+                       </form>
+                   </td>
+				
+				<% } %>
+			</tr>
+			 
+			
+	 </table>
+
+</body>
+</html>
